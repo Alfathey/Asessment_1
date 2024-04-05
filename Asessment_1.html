@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Mahasiswa</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="Container">
+        <div class="Profile-picture">
+            <img src="Foto.jpg" alt="Foto">
+        </div>
+        <div class="Info-Profile">
+            <h2>Muhammad Al Fatih</h2>
+            <p>6701223001</p>
+            <p>D3SI-46-01</p>
+        </div>
+    </div>
+    <div class="form-container">
+      <label for="Jumlah">Jumlah</label>
+      <input type="nomor" id="Jumlah" name="Jumlah">
+      <select name="Pilihan">
+        <option value="nama">Sherlock</option>
+        <option value="nama">lupin</option>
+        <option value="nama">aladin</option>
+      </select>
+      <button type="button">cek</button>
+    </div>
+    <script>
+      const buku = [
+     {"nama": "sherlock", "jumlah":2},
+     {"nama": "lupin", "jumlah":2},
+     {"nama": "aladin", "jumlah":2},
+   ]
+    function getData(){
+        const jumlah = document.getElementById("Jumlah").value;
+        const pilihan = document.getElementById("Pilihan").value;
+
+        if (jumlah === "" ){
+            alert("tidak bole kosong");
+            return;
+        }
+      
+        console.log('Jumlah:',jumlah);
+        console.log('Pilihan:', pilihan);
+
+      const bukuDipilih = buku.find((buku)=>buku.nama === pilihan);
+      if(bukuDipilih){
+        alert("Buku tidak ditemukan!");
+        return;
+      }
+      if(jumlah > bukuDipilih.jumlah){
+        alert("Buku tidak ada");
+        return;
+      }
+    }
+    const submitButton = document.querySelector("button");
+    submitButton.addEventListener("click"),getData;
+  
+   </script>
+</body>
+</html>
